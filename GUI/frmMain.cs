@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLCuaHangBangDiaThietBi;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -109,9 +110,34 @@ namespace GUI
             }
         }
 
-        private void btnTrangChu_Click(object sender, EventArgs e) { }
-        private void btnSanPham_Click(object sender, EventArgs e) { }
-        private void btnHoaDon_Click(object sender, EventArgs e) { }
+        private void btnTrangChu_Click(object sender, EventArgs e)
+        {
+            pnlMainContent.Controls.Clear();
+            ucTrangChu uc = new ucTrangChu();
+            uc.Dock = DockStyle.Fill;
+            pnlMainContent.Controls.Add(uc);
+            uc.BringToFront();
+        }
+        private void btnSanPham_Click(object sender, EventArgs e)
+        {
+            pnlMainContent.Controls.Clear();
+
+            ucSanPham uc = new ucSanPham();
+            uc.Dock = DockStyle.Fill;
+
+            pnlMainContent.Controls.Add(uc);
+            uc.BringToFront();
+        }
+        private void btnHoaDon_Click(object sender, EventArgs e)
+        {
+            pnlMainContent.Controls.Clear();
+
+            ucLapHoaDon uc = new ucLapHoaDon();
+            uc.Dock = DockStyle.Fill;
+
+            pnlMainContent.Controls.Add(uc);
+            uc.BringToFront();
+        }
         private void btnKhachHang_Click(object sender, EventArgs e) { }
         private void btnThongKe_Click(object sender, EventArgs e) { }
         private void btnNhanVien_Click(object sender, EventArgs e) { }

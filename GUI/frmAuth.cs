@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -6,6 +7,9 @@ namespace GUI
 {
     public partial class frmAuth : Form
     {
+        // Chuỗi kết nối SQL Server
+        private string connectionString = @"Server=.;Database=QLCuaHangBangDiaThietBi;Trusted_Connection=True;";
+
         // Khởi tạo Win32 API để làm chữ gợi ý ẩn hệ thống (Placeholder)
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
@@ -33,31 +37,50 @@ namespace GUI
                 return;
             }
 
-            // KỊCH BẢN GIẢ LẬP ĐỂ TEST PHÂN QUYỀN (Không cần SQL Server):
-            // 1. Nếu gõ tài khoản là "admin" -> Hệ thống coi là Chủ cửa hàng
-            // 2. Nếu gõ tài khoản là bất kỳ chữ nào khác -> Hệ thống coi là Nhân viên bán hàng
-            string quyenTaiKhoan = "NhanVien";
-            if (username.ToLower() == "admin" && password == "123")
+            // XÁC THỰC TÀI KHOẢN TRỰC TIẾP TỪ BẢNG NhanVien TRONG SQL SERVER
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                quyenTaiKhoan = "Admin";
-            }
-            else if (username.ToLower() != "admin" && password == "123")
-            {
-                quyenTaiKhoan = "NhanVien";
-            }
-            else
-            {
-                MessageBox.Show("Tài khoản hoặc mật khẩu không đúng! (Mẹo test: Mật khẩu mặc định là 123)", "Lỗi xác thực", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                try
+                {
+                    conn.Open();
 
-            // ĐĂNG NHẬP THÀNH CÔNG -> Mở trang chủ và truyền quyền sang
-            MessageBox.Show($"Đăng nhập thành công với quyền: {quyenTaiKhoan.ToUpper()}!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string query = "SELECT MsNv, Hoten, ChucVu FROM NhanVien WHERE TenDangNhap = @User AND MatKhau = @Pass";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@User", username);
+                    cmd.Parameters.AddWithValue("@Pass", password);
 
-            frmMain mainForm = new frmMain(quyenTaiKhoan);
-            mainForm.Show();
+                    SqlDataReader dr = cmd.ExecuteReader();
 
-            this.Hide(); // Ẩn form đăng nhập này đi
+                    if (dr.Read())
+                    {
+                        string hoTen = dr["Hoten"].ToString();
+                        string chucVu = dr["ChucVu"].ToString();
+
+                        // Tự động nhận diện quyền để truyền sang frmMain
+                        string quyenTaiKhoan = "NhanVien";
+                        if (chucVu.ToLower().Contains("quản lý") || chucVu.ToLower().Contains("admin"))
+                        {
+                            quyenTaiKhoan = "Admin";
+                        }
+
+                        MessageBox.Show($"Đăng nhập thành công!\nXin chào: {hoTen} ({chucVu})", "Xác thực thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Mở trang chủ và truyền quyền vào constructor
+                        frmMain mainForm = new frmMain(quyenTaiKhoan);
+                        mainForm.Show();
+
+                        this.Hide(); // Ẩn form đăng nhập này đi
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác!", "Lỗi xác thực", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi kết nối CSDL: " + ex.Message, "Lỗi SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
