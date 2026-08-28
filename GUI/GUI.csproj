@@ -37,6 +37,7 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,19 +55,49 @@
     <Compile Include="frmAuth.Designer.cs">
       <DependentUpon>frmAuth.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInHoaDon.Designer.cs">
+      <DependentUpon>frmInHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLichSuMuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLichSuMuaHang.Designer.cs">
+      <DependentUpon>frmLichSuMuaHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTraHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTraHang.Designer.cs">
+      <DependentUpon>frmTraHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucKhachHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucKhachHang.Designer.cs">
+      <DependentUpon>ucKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucLapHoaDon.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucLapHoaDon.Designer.cs">
       <DependentUpon>ucLapHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucNhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucNhanVien.Designer.cs">
+      <DependentUpon>ucNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="ucSanPham.cs">
       <SubType>UserControl</SubType>
@@ -74,11 +105,23 @@
     <Compile Include="ucSanPham.Designer.cs">
       <DependentUpon>ucSanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucThongKe.Designer.cs">
+      <DependentUpon>ucThongKe.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucTrangChu.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucTrangChu.Designer.cs">
       <DependentUpon>ucTrangChu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucXuatNhapHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucXuatNhapHang.Designer.cs">
+      <DependentUpon>ucXuatNhapHang.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmAuth.resx">
       <DependentUpon>frmAuth.cs</DependentUpon>
@@ -96,6 +139,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucKhachHang.resx">
+      <DependentUpon>ucKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucLapHoaDon.resx">
+      <DependentUpon>ucLapHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucNhanVien.resx">
+      <DependentUpon>ucNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucSanPham.resx">
       <DependentUpon>ucSanPham.cs</DependentUpon>
     </EmbeddedResource>

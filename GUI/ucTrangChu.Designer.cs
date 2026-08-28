@@ -1,4 +1,4 @@
-﻿namespace GUI
+﻿namespace QLCuaHangBangDiaThietBi
 {
     partial class ucTrangChu
     {
@@ -13,205 +13,252 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
-
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.lblWelcome = new System.Windows.Forms.Label();
-            this.lblClock = new System.Windows.Forms.Label();
-            this.timerClock = new System.Windows.Forms.Timer(this.components);
-
-            // Cards
-            this.pnlCard1 = new System.Windows.Forms.Panel();
-            this.lblCard1Title = new System.Windows.Forms.Label();
-            this.lblCard1Val = new System.Windows.Forms.Label();
-            this.pnlCard2 = new System.Windows.Forms.Panel();
-            this.lblCard2Title = new System.Windows.Forms.Label();
-            this.lblCard2Val = new System.Windows.Forms.Label();
-            this.pnlCard3 = new System.Windows.Forms.Panel();
-            this.lblCard3Title = new System.Windows.Forms.Label();
-            this.lblCard3Val = new System.Windows.Forms.Label();
-            this.pnlCard4 = new System.Windows.Forms.Panel();
-            this.lblCard4Title = new System.Windows.Forms.Label();
-            this.lblCard4Val = new System.Windows.Forms.Label();
-
-            // Quick Actions & Grid
-            this.lblTopTitle = new System.Windows.Forms.Label();
-            this.dgvTopSelling = new System.Windows.Forms.DataGridView();
-            this.pnlHeader.SuspendLayout();
-            this.pnlCard1.SuspendLayout();
-            this.pnlCard2.SuspendLayout();
-            this.pnlCard3.SuspendLayout();
-            this.pnlCard4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTopSelling)).BeginInit();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.pnlTop = new System.Windows.Forms.Panel();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlDoanhThu = new System.Windows.Forms.Panel();
+            this.lblDoanhThuSo = new System.Windows.Forms.Label();
+            this.lblDoanhThuText = new System.Windows.Forms.Label();
+            this.pnlHoaDon = new System.Windows.Forms.Panel();
+            this.lblHoaDonSo = new System.Windows.Forms.Label();
+            this.lblHoaDonText = new System.Windows.Forms.Label();
+            this.pnlTonKho = new System.Windows.Forms.Panel();
+            this.lblTonKhoSo = new System.Windows.Forms.Label();
+            this.lblTonKhoText = new System.Windows.Forms.Label();
+            this.pnlKhachHang = new System.Windows.Forms.Panel();
+            this.lblKhachHangSo = new System.Windows.Forms.Label();
+            this.lblKhachHangText = new System.Windows.Forms.Label();
+            this.chartTopSP = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartTyTrong = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.pnlTop.SuspendLayout();
+            this.pnlDoanhThu.SuspendLayout();
+            this.pnlHoaDon.SuspendLayout();
+            this.pnlTonKho.SuspendLayout();
+            this.pnlKhachHang.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTopSP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTyTrong)).BeginInit();
             this.SuspendLayout();
-
-            // pnlHeader
-            this.pnlHeader.BackColor = System.Drawing.Color.Teal;
-            this.pnlHeader.Controls.Add(this.lblWelcome);
-            this.pnlHeader.Controls.Add(this.lblClock);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(950, 50);
-
-            // lblWelcome
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblWelcome.ForeColor = System.Drawing.Color.White;
-            this.lblWelcome.Location = new System.Drawing.Point(15, 15);
-            this.lblWelcome.Text = "HỆ THỐNG QUẢN LÝ CỬA HÀNG BĂNG ĐĨA AUDIOPHILE";
-
-            // lblClock
-            this.lblClock.AutoSize = true;
-            this.lblClock.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblClock.ForeColor = System.Drawing.Color.Yellow;
-            this.lblClock.Location = new System.Drawing.Point(680, 16);
-            this.lblClock.Text = "27/07/2026 09:00:00";
-
-            // timerClock
-            this.timerClock.Enabled = true;
-            this.timerClock.Interval = 1000;
-            this.timerClock.Tick += new System.EventHandler(this.timerClock_Tick);
-
-            // Card 1 - Doanh thu
-            this.pnlCard1.BackColor = System.Drawing.Color.SeaGreen;
-            this.pnlCard1.Controls.Add(this.lblCard1Title);
-            this.pnlCard1.Controls.Add(this.lblCard1Val);
-            this.pnlCard1.Location = new System.Drawing.Point(20, 70);
-            this.pnlCard1.Size = new System.Drawing.Size(210, 90);
-
-            this.lblCard1Title.AutoSize = true;
-            this.lblCard1Title.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblCard1Title.ForeColor = System.Drawing.Color.White;
-            this.lblCard1Title.Location = new System.Drawing.Point(10, 12);
-            this.lblCard1Title.Text = "DOANH THU HÔM NAY";
-
-            this.lblCard1Val.AutoSize = true;
-            this.lblCard1Val.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblCard1Val.ForeColor = System.Drawing.Color.White;
-            this.lblCard1Val.Location = new System.Drawing.Point(10, 42);
-            this.lblCard1Val.Text = "0 VNĐ";
-
-            // Card 2 - Hóa đơn
-            this.pnlCard2.BackColor = System.Drawing.Color.SteelBlue;
-            this.pnlCard2.Controls.Add(this.lblCard2Title);
-            this.pnlCard2.Controls.Add(this.lblCard2Val);
-            this.pnlCard2.Location = new System.Drawing.Point(250, 70);
-            this.pnlCard2.Size = new System.Drawing.Size(210, 90);
-
-            this.lblCard2Title.AutoSize = true;
-            this.lblCard2Title.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblCard2Title.ForeColor = System.Drawing.Color.White;
-            this.lblCard2Title.Location = new System.Drawing.Point(10, 12);
-            this.lblCard2Title.Text = "HÓA ĐƠN BÁN TRONG NGÀY";
-
-            this.lblCard2Val.AutoSize = true;
-            this.lblCard2Val.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblCard2Val.ForeColor = System.Drawing.Color.White;
-            this.lblCard2Val.Location = new System.Drawing.Point(10, 42);
-            this.lblCard2Val.Text = "0 Đơn";
-
-            // Card 3 - Phiếu thuê
-            this.pnlCard3.BackColor = System.Drawing.Color.DarkOrange;
-            this.pnlCard3.Controls.Add(this.lblCard3Title);
-            this.pnlCard3.Controls.Add(this.lblCard3Val);
-            this.pnlCard3.Location = new System.Drawing.Point(480, 70);
-            this.pnlCard3.Size = new System.Drawing.Size(210, 90);
-
-            this.lblCard3Title.AutoSize = true;
-            this.lblCard3Title.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblCard3Title.ForeColor = System.Drawing.Color.White;
-            this.lblCard3Title.Location = new System.Drawing.Point(10, 12);
-            this.lblCard3Title.Text = "Đang Cho Thuê (Chưa Trả)";
-
-            this.lblCard3Val.AutoSize = true;
-            this.lblCard3Val.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblCard3Val.ForeColor = System.Drawing.Color.White;
-            this.lblCard3Val.Location = new System.Drawing.Point(10, 42);
-            this.lblCard3Val.Text = "0 Phiếu";
-
-            // Card 4 - Khách hàng
-            this.pnlCard4.BackColor = System.Drawing.Color.IndianRed;
-            this.pnlCard4.Controls.Add(this.lblCard4Title);
-            this.pnlCard4.Controls.Add(this.lblCard4Val);
-            this.pnlCard4.Location = new System.Drawing.Point(710, 70);
-            this.pnlCard4.Size = new System.Drawing.Size(210, 90);
-
-            this.lblCard4Title.AutoSize = true;
-            this.lblCard4Title.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblCard4Title.ForeColor = System.Drawing.Color.White;
-            this.lblCard4Title.Location = new System.Drawing.Point(10, 12);
-            this.lblCard4Title.Text = "TỔNG KHÁCH HÀNG";
-
-            this.lblCard4Val.AutoSize = true;
-            this.lblCard4Val.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblCard4Val.ForeColor = System.Drawing.Color.White;
-            this.lblCard4Val.Location = new System.Drawing.Point(10, 42);
-            this.lblCard4Val.Text = "0 Khách";
-
-            // Title Table
-            this.lblTopTitle.AutoSize = true;
-            this.lblTopTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTopTitle.ForeColor = System.Drawing.Color.Teal;
-            this.lblTopTitle.Location = new System.Drawing.Point(20, 185);
-            this.lblTopTitle.Text = "TOP SẢN PHẨM (BĂNG ĐĨA / THIẾT BỊ) BÁN CHẠY NHẤT";
-
-            // dgvTopSelling
-            this.dgvTopSelling.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTopSelling.BackgroundColor = System.Drawing.Color.White;
-            this.dgvTopSelling.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTopSelling.Location = new System.Drawing.Point(20, 215);
-            this.dgvTopSelling.Name = "dgvTopSelling";
-            this.dgvTopSelling.ReadOnly = true;
-            this.dgvTopSelling.Size = new System.Drawing.Size(900, 370);
-
+            // 
+            // pnlTop
+            // 
+            this.pnlTop.BackColor = System.Drawing.Color.Teal;
+            this.pnlTop.Controls.Add(this.lblTime);
+            this.pnlTop.Controls.Add(this.lblTitle);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(950, 45);
+            // 
+            // lblTime
+            // 
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblTime.ForeColor = System.Drawing.Color.Gold;
+            this.lblTime.Location = new System.Drawing.Point(740, 12);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Text = "Hôm nay";
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(15, 12);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Text = "HỆ THỐNG QUẢN LÝ CỬA HÀNG BĂNG ĐĨA AUDIOPHILE";
+            // 
+            // pnlDoanhThu
+            // 
+            this.pnlDoanhThu.BackColor = System.Drawing.Color.SeaGreen;
+            this.pnlDoanhThu.Controls.Add(this.lblDoanhThuSo);
+            this.pnlDoanhThu.Controls.Add(this.lblDoanhThuText);
+            this.pnlDoanhThu.Location = new System.Drawing.Point(20, 65);
+            this.pnlDoanhThu.Name = "pnlDoanhThu";
+            this.pnlDoanhThu.Size = new System.Drawing.Size(210, 100);
+            // 
+            // lblDoanhThuSo
+            // 
+            this.lblDoanhThuSo.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblDoanhThuSo.ForeColor = System.Drawing.Color.White;
+            this.lblDoanhThuSo.Location = new System.Drawing.Point(10, 45);
+            this.lblDoanhThuSo.Name = "lblDoanhThuSo";
+            this.lblDoanhThuSo.Text = "0 VNĐ";
+            // 
+            // lblDoanhThuText
+            // 
+            this.lblDoanhThuText.AutoSize = true;
+            this.lblDoanhThuText.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDoanhThuText.ForeColor = System.Drawing.Color.White;
+            this.lblDoanhThuText.Location = new System.Drawing.Point(10, 15);
+            this.lblDoanhThuText.Name = "lblDoanhThuText";
+            this.lblDoanhThuText.Text = "DOANH THU HÔM NAY";
+            // 
+            // pnlHoaDon
+            // 
+            this.pnlHoaDon.BackColor = System.Drawing.Color.SteelBlue;
+            this.pnlHoaDon.Controls.Add(this.lblHoaDonSo);
+            this.pnlHoaDon.Controls.Add(this.lblHoaDonText);
+            this.pnlHoaDon.Location = new System.Drawing.Point(250, 65);
+            this.pnlHoaDon.Name = "pnlHoaDon";
+            this.pnlHoaDon.Size = new System.Drawing.Size(210, 100);
+            // 
+            // lblHoaDonSo
+            // 
+            this.lblHoaDonSo.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblHoaDonSo.ForeColor = System.Drawing.Color.White;
+            this.lblHoaDonSo.Location = new System.Drawing.Point(10, 45);
+            this.lblHoaDonSo.Name = "lblHoaDonSo";
+            this.lblHoaDonSo.Text = "0 Đơn";
+            // 
+            // lblHoaDonText
+            // 
+            this.lblHoaDonText.AutoSize = true;
+            this.lblHoaDonText.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblHoaDonText.ForeColor = System.Drawing.Color.White;
+            this.lblHoaDonText.Location = new System.Drawing.Point(10, 15);
+            this.lblHoaDonText.Name = "lblHoaDonText";
+            this.lblHoaDonText.Text = "HÓA ĐƠN TRONG NGÀY";
+            // 
+            // pnlTonKho
+            // 
+            this.pnlTonKho.BackColor = System.Drawing.Color.DarkOrange;
+            this.pnlTonKho.Controls.Add(this.lblTonKhoSo);
+            this.pnlTonKho.Controls.Add(this.lblTonKhoText);
+            this.pnlTonKho.Location = new System.Drawing.Point(480, 65);
+            this.pnlTonKho.Name = "pnlTonKho";
+            this.pnlTonKho.Size = new System.Drawing.Size(210, 100);
+            // 
+            // lblTonKhoSo
+            // 
+            this.lblTonKhoSo.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblTonKhoSo.ForeColor = System.Drawing.Color.White;
+            this.lblTonKhoSo.Location = new System.Drawing.Point(10, 45);
+            this.lblTonKhoSo.Name = "lblTonKhoSo";
+            this.lblTonKhoSo.Text = "0 Sản phẩm";
+            // 
+            // lblTonKhoText
+            // 
+            this.lblTonKhoText.AutoSize = true;
+            this.lblTonKhoText.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblTonKhoText.ForeColor = System.Drawing.Color.White;
+            this.lblTonKhoText.Location = new System.Drawing.Point(10, 15);
+            this.lblTonKhoText.Name = "lblTonKhoText";
+            this.lblTonKhoText.Text = "TỔNG HÀNG TỒN KHO";
+            // 
+            // pnlKhachHang
+            // 
+            this.pnlKhachHang.BackColor = System.Drawing.Color.IndianRed;
+            this.pnlKhachHang.Controls.Add(this.lblKhachHangSo);
+            this.pnlKhachHang.Controls.Add(this.lblKhachHangText);
+            this.pnlKhachHang.Location = new System.Drawing.Point(710, 65);
+            this.pnlKhachHang.Name = "pnlKhachHang";
+            this.pnlKhachHang.Size = new System.Drawing.Size(210, 100);
+            // 
+            // lblKhachHangSo
+            // 
+            this.lblKhachHangSo.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblKhachHangSo.ForeColor = System.Drawing.Color.White;
+            this.lblKhachHangSo.Location = new System.Drawing.Point(10, 45);
+            this.lblKhachHangSo.Name = "lblKhachHangSo";
+            this.lblKhachHangSo.Text = "0 Khách";
+            // 
+            // lblKhachHangText
+            // 
+            this.lblKhachHangText.AutoSize = true;
+            this.lblKhachHangText.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblKhachHangText.ForeColor = System.Drawing.Color.White;
+            this.lblKhachHangText.Location = new System.Drawing.Point(10, 15);
+            this.lblKhachHangText.Name = "lblKhachHangText";
+            this.lblKhachHangText.Text = "TỔNG KHÁCH HÀNG";
+            // 
+            // chartTopSP
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartTopSP.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartTopSP.Legends.Add(legend1);
+            this.chartTopSP.Location = new System.Drawing.Point(20, 190);
+            this.chartTopSP.Name = "chartTopSP";
+            this.chartTopSP.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Số lượng bán";
+            this.chartTopSP.Series.Add(series1);
+            this.chartTopSP.Size = new System.Drawing.Size(560, 390);
+            this.chartTopSP.TabIndex = 4;
+            this.chartTopSP.Text = "Top 5 Sản Phẩm";
+            // 
+            // chartTyTrong
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chartTyTrong.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartTyTrong.Legends.Add(legend2);
+            this.chartTyTrong.Location = new System.Drawing.Point(600, 190);
+            this.chartTyTrong.Name = "chartTyTrong";
+            this.chartTyTrong.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Legend = "Legend1";
+            series2.Name = "DoanhThu";
+            this.chartTyTrong.Series.Add(series2);
+            this.chartTyTrong.Size = new System.Drawing.Size(320, 390);
+            this.chartTyTrong.TabIndex = 5;
+            this.chartTyTrong.Text = "Tỉ trọng Doanh Thu";
+            // 
             // ucTrangChu
-            this.Controls.Add(this.pnlHeader);
-            this.Controls.Add(this.pnlCard1);
-            this.Controls.Add(this.pnlCard2);
-            this.Controls.Add(this.pnlCard3);
-            this.Controls.Add(this.pnlCard4);
-            this.Controls.Add(this.lblTopTitle);
-            this.Controls.Add(this.dgvTopSelling);
+            // 
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.chartTyTrong);
+            this.Controls.Add(this.chartTopSP);
+            this.Controls.Add(this.pnlKhachHang);
+            this.Controls.Add(this.pnlTonKho);
+            this.Controls.Add(this.pnlHoaDon);
+            this.Controls.Add(this.pnlDoanhThu);
+            this.Controls.Add(this.pnlTop);
             this.Name = "ucTrangChu";
             this.Size = new System.Drawing.Size(950, 610);
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
-            this.pnlCard1.ResumeLayout(false);
-            this.pnlCard1.PerformLayout();
-            this.pnlCard2.ResumeLayout(false);
-            this.pnlCard2.PerformLayout();
-            this.pnlCard3.ResumeLayout(false);
-            this.pnlCard3.PerformLayout();
-            this.pnlCard4.ResumeLayout(false);
-            this.pnlCard4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTopSelling)).EndInit();
+            this.Load += new System.EventHandler(this.ucTrangChu_Load);
+            this.pnlTop.ResumeLayout(false);
+            this.pnlTop.PerformLayout();
+            this.pnlDoanhThu.ResumeLayout(false);
+            this.pnlDoanhThu.PerformLayout();
+            this.pnlHoaDon.ResumeLayout(false);
+            this.pnlHoaDon.PerformLayout();
+            this.pnlTonKho.ResumeLayout(false);
+            this.pnlTonKho.PerformLayout();
+            this.pnlKhachHang.ResumeLayout(false);
+            this.pnlKhachHang.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTopSP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTyTrong)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
         }
 
-        #endregion
-
-        private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.Label lblWelcome;
-        private System.Windows.Forms.Label lblClock;
-        private System.Windows.Forms.Timer timerClock;
-        private System.Windows.Forms.Panel pnlCard1;
-        private System.Windows.Forms.Label lblCard1Title;
-        private System.Windows.Forms.Label lblCard1Val;
-        private System.Windows.Forms.Panel pnlCard2;
-        private System.Windows.Forms.Label lblCard2Title;
-        private System.Windows.Forms.Label lblCard2Val;
-        private System.Windows.Forms.Panel pnlCard3;
-        private System.Windows.Forms.Label lblCard3Title;
-        private System.Windows.Forms.Label lblCard3Val;
-        private System.Windows.Forms.Panel pnlCard4;
-        private System.Windows.Forms.Label lblCard4Title;
-        private System.Windows.Forms.Label lblCard4Val;
-        private System.Windows.Forms.Label lblTopTitle;
-        private System.Windows.Forms.DataGridView dgvTopSelling;
+        private System.Windows.Forms.Panel pnlTop;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Panel pnlDoanhThu;
+        private System.Windows.Forms.Label lblDoanhThuSo;
+        private System.Windows.Forms.Label lblDoanhThuText;
+        private System.Windows.Forms.Panel pnlHoaDon;
+        private System.Windows.Forms.Label lblHoaDonSo;
+        private System.Windows.Forms.Label lblHoaDonText;
+        private System.Windows.Forms.Panel pnlTonKho;
+        private System.Windows.Forms.Label lblTonKhoSo;
+        private System.Windows.Forms.Label lblTonKhoText;
+        private System.Windows.Forms.Panel pnlKhachHang;
+        private System.Windows.Forms.Label lblKhachHangSo;
+        private System.Windows.Forms.Label lblKhachHangText;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTopSP;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTyTrong;
     }
 }

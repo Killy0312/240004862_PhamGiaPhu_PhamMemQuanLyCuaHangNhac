@@ -1,86 +1,164 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.Runtime.InteropServices;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace GUI
 {
     public partial class frmAuth : Form
     {
-        // Chuỗi kết nối SQL Server
         private string connectionString = @"Server=.;Database=QLCuaHangBangDiaThietBi;Trusted_Connection=True;";
 
-        // Khởi tạo Win32 API để làm chữ gợi ý ẩn hệ thống (Placeholder)
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
-        private const int EM_SETCUEBANNER = 0x1501;
+        public static string MaNhanVien = "";
+        public static string TenNhanVien = "";
+        public static string ChucVu = "";
+
+        // Biến quản lý nút ẩn/hiện mật khẩu
+        private bool isHienMatKhau = false;
+        private Button btnToggleMatKhau;
 
         public frmAuth()
         {
             InitializeComponent();
-
-            // Cấu hình chữ gợi ý tự mất khi gõ và che mật khẩu dấu chấm tròn
-            SendMessage(txtLoginUser.Handle, EM_SETCUEBANNER, 1, "Nhập tài khoản...");
-            SendMessage(txtLoginPass.Handle, EM_SETCUEBANNER, 1, "Nhập mật khẩu...");
-            txtLoginPass.UseSystemPasswordChar = true;
+            LoadBanner();
+            KhoiTaoNutAnHienMatKhau(); // Tự động tạo nút con mắt bên trong ô mật khẩu
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        // ================= KHỞI TẠO NÚT CON MẮT ĐÓNG / MỞ =================
+        private void KhoiTaoNutAnHienMatKhau()
         {
-            string username = txtLoginUser.Text.Trim();
-            string password = txtLoginPass.Text.Trim();
+            // Mặc định ẩn mật khẩu
+            txtMatKhau.UseSystemPasswordChar = true;
 
-            // KIỂM TRA BẮT BUỘC: Không được để trống dữ liệu nhập
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            // Tạo nút bấm con mắt
+            btnToggleMatKhau = new Button();
+            btnToggleMatKhau.Name = "btnToggleMatKhau";
+            btnToggleMatKhau.Text = "👁";
+            btnToggleMatKhau.Font = new Font("Segoe UI Emoji", 10F, FontStyle.Regular);
+            btnToggleMatKhau.ForeColor = Color.Gray;
+            btnToggleMatKhau.BackColor = Color.White;
+            btnToggleMatKhau.FlatStyle = FlatStyle.Flat;
+            btnToggleMatKhau.FlatAppearance.BorderSize = 0;
+            btnToggleMatKhau.FlatAppearance.MouseOverBackColor = Color.FromArgb(240, 240, 240);
+            btnToggleMatKhau.Cursor = Cursors.Hand;
+
+            // Đặt kích thước và vị trí nằm góc phải bên trong ô Password
+            btnToggleMatKhau.Size = new Size(30, txtMatKhau.Height - 4);
+            btnToggleMatKhau.Location = new Point(txtMatKhau.Right - 32, txtMatKhau.Top + 2);
+
+            // Gán sự kiện click
+            btnToggleMatKhau.Click += BtnToggleMatKhau_Click;
+
+            // Gắn nút vào cùng khung chứa với ô mật khẩu
+            Control parent = txtMatKhau.Parent ?? this;
+            parent.Controls.Add(btnToggleMatKhau);
+            btnToggleMatKhau.BringToFront();
+        }
+
+        private void BtnToggleMatKhau_Click(object sender, EventArgs e)
+        {
+            isHienMatKhau = !isHienMatKhau;
+
+            if (isHienMatKhau)
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ tài khoản và mật khẩu!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Hiện mật khẩu
+                txtMatKhau.UseSystemPasswordChar = false;
+                txtMatKhau.PasswordChar = '\0';
+                btnToggleMatKhau.Text = "🙈";
+                btnToggleMatKhau.ForeColor = Color.Teal;
+            }
+            else
+            {
+                // Ẩn mật khẩu
+                txtMatKhau.UseSystemPasswordChar = true;
+                txtMatKhau.PasswordChar = '●';
+                btnToggleMatKhau.Text = "👁";
+                btnToggleMatKhau.ForeColor = Color.Gray;
+            }
+
+            txtMatKhau.Focus();
+            txtMatKhau.SelectionStart = txtMatKhau.Text.Length;
+        }
+
+        private void LoadBanner()
+        {
+            if (picBanner.Image != null) return;
+
+            string bannerPath = Path.Combine(Application.StartupPath, "Images", "login_banner.jpg");
+            if (File.Exists(bannerPath))
+            {
+                picBanner.ImageLocation = bannerPath;
+            }
+            else
+            {
+                pnlLeft.BackColor = Color.Teal;
+            }
+        }
+
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            string tk = txtTaiKhoan.Text.Trim();
+            string mk = txtMatKhau.Text.Trim();
+
+            if (string.IsNullOrEmpty(tk) || string.IsNullOrEmpty(mk))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ Tài khoản và Mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // XÁC THỰC TÀI KHOẢN TRỰC TIẾP TỪ BẢNG NhanVien TRONG SQL SERVER
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
-
-                    string query = "SELECT MsNv, Hoten, ChucVu FROM NhanVien WHERE TenDangNhap = @User AND MatKhau = @Pass";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@User", username);
-                    cmd.Parameters.AddWithValue("@Pass", password);
+                    string sql = "SELECT MsNv, Hoten, ChucVu FROM NhanVien WHERE TenDangNhap = @User AND MatKhau = @Pass";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@User", tk);
+                    cmd.Parameters.AddWithValue("@Pass", mk);
 
                     SqlDataReader dr = cmd.ExecuteReader();
-
                     if (dr.Read())
                     {
-                        string hoTen = dr["Hoten"].ToString();
-                        string chucVu = dr["ChucVu"].ToString();
+                        MaNhanVien = dr["MsNv"].ToString();
+                        TenNhanVien = dr["Hoten"].ToString();
+                        ChucVu = dr["ChucVu"].ToString();
 
-                        // Tự động nhận diện quyền để truyền sang frmMain
-                        string quyenTaiKhoan = "NhanVien";
-                        if (chucVu.ToLower().Contains("quản lý") || chucVu.ToLower().Contains("admin"))
-                        {
-                            quyenTaiKhoan = "Admin";
-                        }
+                        MessageBox.Show($"Đăng nhập thành công!\nXin chào {ChucVu}: {TenNhanVien}", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        MessageBox.Show($"Đăng nhập thành công!\nXin chào: {hoTen} ({chucVu})", "Xác thực thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtMatKhau.Clear();
+                        this.Hide();
 
-                        // Mở trang chủ và truyền quyền vào constructor
-                        frmMain mainForm = new frmMain(quyenTaiKhoan);
-                        mainForm.Show();
+                        frmMain main = new frmMain();
+                        main.ShowDialog();
 
-                        this.Hide(); // Ẩn form đăng nhập này đi
+                        this.Show();
                     }
                     else
                     {
-                        MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác!", "Lỗi xác thực", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác!", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtMatKhau.Clear();
+                        txtMatKhau.Focus();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi kết nối CSDL: " + ex.Message, "Lỗi SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi kết nối cơ sở dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void txtInputs_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnDangNhap_Click(null, null);
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

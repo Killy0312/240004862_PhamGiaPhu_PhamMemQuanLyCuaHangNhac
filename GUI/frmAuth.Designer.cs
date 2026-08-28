@@ -1,16 +1,13 @@
-﻿namespace GUI
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace GUI
 {
     partial class frmAuth
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,170 +19,196 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.pnlBranding = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlLogin = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.txtLoginPass = new System.Windows.Forms.TextBox();
-            this.txtLoginUser = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pnlBranding.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnlLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnlLeft = new System.Windows.Forms.Panel();
+            this.picBanner = new System.Windows.Forms.PictureBox();
+            this.pnlRight = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblSubTitle = new System.Windows.Forms.Label();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.txtTaiKhoan = new System.Windows.Forms.TextBox();
+            this.lblPass = new System.Windows.Forms.Label();
+            this.txtMatKhau = new System.Windows.Forms.TextBox();
+            this.btnDangNhap = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.pnlLeft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBanner)).BeginInit();
+            this.pnlRight.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlBranding
+            // pnlLeft
             // 
-            this.pnlBranding.BackColor = System.Drawing.Color.White;
-            this.pnlBranding.Controls.Add(this.pictureBox1);
-            this.pnlBranding.Location = new System.Drawing.Point(0, -1);
-            this.pnlBranding.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlBranding.Name = "pnlBranding";
-            this.pnlBranding.Size = new System.Drawing.Size(568, 576);
-            this.pnlBranding.TabIndex = 0;
+            this.pnlLeft.Controls.Add(this.picBanner);
+            this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlLeft.Location = new System.Drawing.Point(0, 0);
+            this.pnlLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlLeft.Name = "pnlLeft";
+            this.pnlLeft.Size = new System.Drawing.Size(533, 591);
+            this.pnlLeft.TabIndex = 1;
             // 
-            // pictureBox1
+            // picBanner
             // 
-            this.pictureBox1.Image = global::GUI.Properties.Resources.Ảnh_chụp_màn_hình_2026_07_11_161601;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(564, 644);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.picBanner.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBanner.Image = global::GUI.Properties.Resources.Ảnh_chụp_màn_hình_2026_07_11_161601;
+            this.picBanner.Location = new System.Drawing.Point(0, 0);
+            this.picBanner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picBanner.Name = "picBanner";
+            this.picBanner.Size = new System.Drawing.Size(533, 591);
+            this.picBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBanner.TabIndex = 0;
+            this.picBanner.TabStop = false;
             // 
-            // pnlLogin
+            // pnlRight
             // 
-            this.pnlLogin.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pnlLogin.Controls.Add(this.label1);
-            this.pnlLogin.Controls.Add(this.pictureBox3);
-            this.pnlLogin.Controls.Add(this.pictureBox2);
-            this.pnlLogin.Controls.Add(this.btnLogin);
-            this.pnlLogin.Controls.Add(this.txtLoginPass);
-            this.pnlLogin.Controls.Add(this.txtLoginUser);
-            this.pnlLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.pnlLogin.Location = new System.Drawing.Point(563, 3);
-            this.pnlLogin.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(551, 572);
-            this.pnlLogin.TabIndex = 2;
+            this.pnlRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
+            this.pnlRight.Controls.Add(this.lblTitle);
+            this.pnlRight.Controls.Add(this.lblSubTitle);
+            this.pnlRight.Controls.Add(this.lblUser);
+            this.pnlRight.Controls.Add(this.txtTaiKhoan);
+            this.pnlRight.Controls.Add(this.lblPass);
+            this.pnlRight.Controls.Add(this.txtMatKhau);
+            this.pnlRight.Controls.Add(this.btnDangNhap);
+            this.pnlRight.Controls.Add(this.btnThoat);
+            this.pnlRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlRight.Location = new System.Drawing.Point(533, 0);
+            this.pnlRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlRight.Name = "pnlRight";
+            this.pnlRight.Size = new System.Drawing.Size(560, 591);
+            this.pnlRight.TabIndex = 0;
             // 
-            // pictureBox3
+            // lblTitle
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.pictureBox3.Image = global::GUI.Properties.Resources.padlock;
-            this.pictureBox3.Location = new System.Drawing.Point(67, 181);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(63, 42);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.Teal;
+            this.lblTitle.Location = new System.Drawing.Point(53, 55);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(351, 40);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "ĐĂNG NHẬP HỆ THỐNG";
             // 
-            // pictureBox2
+            // lblSubTitle
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.pictureBox2.Image = global::GUI.Properties.Resources.pngfind_com_male_symbol_png_349693;
-            this.pictureBox2.Location = new System.Drawing.Point(67, 104);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(63, 38);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
+            this.lblSubTitle.AutoSize = true;
+            this.lblSubTitle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Italic);
+            this.lblSubTitle.ForeColor = System.Drawing.Color.DimGray;
+            this.lblSubTitle.Location = new System.Drawing.Point(56, 105);
+            this.lblSubTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSubTitle.Name = "lblSubTitle";
+            this.lblSubTitle.Size = new System.Drawing.Size(282, 21);
+            this.lblSubTitle.TabIndex = 1;
+            this.lblSubTitle.Text = "Cửa hàng Băng đĩa & Thiết bị Audiophile";
             // 
-            // btnLogin
+            // lblUser
             // 
-            this.btnLogin.Location = new System.Drawing.Point(183, 267);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(291, 62);
-            this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Đăng nhập";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblUser.Location = new System.Drawing.Point(56, 166);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(219, 23);
+            this.lblUser.TabIndex = 2;
+            this.lblUser.Text = "Tên tài khoản / Username:";
             // 
-            // txtLoginPass
+            // txtTaiKhoan
             // 
-            this.txtLoginPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(62)))));
-            this.txtLoginPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtLoginPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.txtLoginPass.ForeColor = System.Drawing.Color.White;
-            this.txtLoginPass.Location = new System.Drawing.Point(167, 181);
-            this.txtLoginPass.Margin = new System.Windows.Forms.Padding(4);
-            this.txtLoginPass.Name = "txtLoginPass";
-            this.txtLoginPass.Size = new System.Drawing.Size(339, 27);
-            this.txtLoginPass.TabIndex = 1;
-            this.txtLoginPass.UseSystemPasswordChar = true;
+            this.txtTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 11.5F);
+            this.txtTaiKhoan.Location = new System.Drawing.Point(60, 199);
+            this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTaiKhoan.Name = "txtTaiKhoan";
+            this.txtTaiKhoan.Size = new System.Drawing.Size(425, 33);
+            this.txtTaiKhoan.TabIndex = 3;
+            this.txtTaiKhoan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtInputs_KeyDown);
             // 
-            // txtLoginUser
+            // lblPass
             // 
-            this.txtLoginUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(62)))));
-            this.txtLoginUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtLoginUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.txtLoginUser.ForeColor = System.Drawing.Color.White;
-            this.txtLoginUser.Location = new System.Drawing.Point(167, 115);
-            this.txtLoginUser.Margin = new System.Windows.Forms.Padding(4);
-            this.txtLoginUser.Name = "txtLoginUser";
-            this.txtLoginUser.Size = new System.Drawing.Size(339, 27);
-            this.txtLoginUser.TabIndex = 0;
+            this.lblPass.AutoSize = true;
+            this.lblPass.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblPass.Location = new System.Drawing.Point(56, 258);
+            this.lblPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPass.Name = "lblPass";
+            this.lblPass.Size = new System.Drawing.Size(184, 23);
+            this.lblPass.TabIndex = 4;
+            this.lblPass.Text = "Mật khẩu / Password:";
             // 
-            // label1
+            // txtMatKhau
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label1.Location = new System.Drawing.Point(99, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(335, 29);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Cửa hàng băng đĩa Audiophile";
+            this.txtMatKhau.Font = new System.Drawing.Font("Segoe UI", 11.5F);
+            this.txtMatKhau.Location = new System.Drawing.Point(60, 292);
+            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '●';
+            this.txtMatKhau.Size = new System.Drawing.Size(425, 33);
+            this.txtMatKhau.TabIndex = 5;
+            this.txtMatKhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtInputs_KeyDown);
+            // 
+            // btnDangNhap
+            // 
+            this.btnDangNhap.BackColor = System.Drawing.Color.Teal;
+            this.btnDangNhap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangNhap.Font = new System.Drawing.Font("Segoe UI", 11.5F, System.Drawing.FontStyle.Bold);
+            this.btnDangNhap.ForeColor = System.Drawing.Color.White;
+            this.btnDangNhap.Location = new System.Drawing.Point(60, 369);
+            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(427, 55);
+            this.btnDangNhap.TabIndex = 6;
+            this.btnDangNhap.Text = "ĐĂNG NHẬP";
+            this.btnDangNhap.UseVisualStyleBackColor = false;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThoat.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.btnThoat.ForeColor = System.Drawing.Color.Gray;
+            this.btnThoat.Location = new System.Drawing.Point(60, 443);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(427, 43);
+            this.btnThoat.TabIndex = 7;
+            this.btnThoat.Text = "Thoát ứng dụng";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // frmAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 567);
-            this.Controls.Add(this.pnlLogin);
-            this.Controls.Add(this.pnlBranding);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
+            this.ClientSize = new System.Drawing.Size(1093, 591);
+            this.Controls.Add(this.pnlRight);
+            this.Controls.Add(this.pnlLeft);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmAuth";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HỆ THỐNG XÁC THỰC - MUSIC STORE";
-            this.pnlBranding.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnlLogin.ResumeLayout(false);
-            this.pnlLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnlLeft.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBanner)).EndInit();
+            this.pnlRight.ResumeLayout(false);
+            this.pnlRight.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlBranding;
-        private System.Windows.Forms.Panel pnlLogin;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox txtLoginPass;
-        private System.Windows.Forms.TextBox txtLoginUser;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pnlLeft;
+        private System.Windows.Forms.PictureBox picBanner;
+        private System.Windows.Forms.Panel pnlRight;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblSubTitle;
+        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.TextBox txtTaiKhoan;
+        private System.Windows.Forms.Label lblPass;
+        private System.Windows.Forms.TextBox txtMatKhau;
+        private System.Windows.Forms.Button btnDangNhap;
+        private System.Windows.Forms.Button btnThoat;
     }
 }
-
